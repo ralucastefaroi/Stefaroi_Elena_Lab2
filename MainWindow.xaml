@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stefaroi_Elena_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
     <Grid>
         <Label x:Name="lblTitle_" Content="Doughnuts - Bake &amp; Sale" FontWeight="Bold" FontSize="24" Margin="211,22,-211,-22"/>
         <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="52,71,507,224" RenderTransformOrigin="0.5,0.5">
@@ -20,8 +20,8 @@
             <Canvas Margin="155,115,0,0">
                 <Label x:Name="lblGlazedRaised" Content="Glazed" FontWeight="Normal" RenderTransformOrigin="-0.688,-2.52" Canvas.Left="-139" Canvas.Top="-95"/>
                 <TextBox x:Name="txtGlazedRaised" Text="0" TextWrapping="Wrap" Width="67" IsReadOnly="True" Canvas.Left="-40" Canvas.Top="-92" Height="22"/>
-                <Label x:Name="lblSugarRaised_" Content="Sugar" FontWeight="Normal" Canvas.Left="-135" Canvas.Top="-56"/>
-                <TextBox x:Name="txtSugarRaised_" Text="0" TextWrapping="Wrap" Width="70" IsReadOnly="True" Canvas.Left="-41" Canvas.Top="-50" Height="22"/>
+                <Label x:Name="lblSugarRaised" Content="Sugar" FontWeight="Normal" Canvas.Left="-135" Canvas.Top="-56"/>
+                <TextBox x:Name="txtSugarRaised" Text="0" TextWrapping="Wrap" Width="70" IsReadOnly="True" Canvas.Left="-41" Canvas.Top="-50" Height="22"/>
             </Canvas>
         </GroupBox>
         <GroupBox x:Name="gbFilled_" Header="Filled" FontWeight="Bold" Margin="400,72,68,217">
@@ -53,20 +53,20 @@
         </GroupBox>
 
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
-Width="131">
+Width="230">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="_Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed" IsCheckable="True"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar" IsCheckable="True"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
-
     </Grid>
 </Window>
